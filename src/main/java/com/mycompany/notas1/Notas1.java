@@ -22,11 +22,11 @@ public class Notas1 {
            System.out.println("4. Salir");            
            System.out.println("Escribe una de las opciones");
            opcion = sn.nextInt();
-           
+           Alumno alumno = new Alumno();
            switch(opcion){
                case 1:
                    System.out.println("Has seleccionado la opcion 1");
-                    Alumno alumno = ingreso_alumno();
+                    ingreso_alumno(alumno);
                    break;
                case 2:
                    System.out.println("Has seleccionado la opcion 2");
@@ -47,7 +47,7 @@ public class Notas1 {
        
 
     }
-    public static Alumno ingreso_alumno(){
+    public static Alumno ingreso_alumno(Alumno alumno){
         /*
         ¿Qué es el Método estático en Java?
             El método estático en Java es un método que pertenece a la clase y no al objeto. Un método estático solo puede acceder a datos estáticos.
@@ -61,18 +61,22 @@ public class Notas1 {
        Scanner sn = new Scanner(System.in);
        System.out.println("ingrese Nombre del alumno");
        String nombre = sn.next();
+       alumno.setNombre(nombre);
        System.out.println("ingrese Sexo del alumno");
-       String sexo = sn.next();
        
+       String sexo = sn.next();
+       alumno.setSexo(nombre);
        System.out.println("ingrese edad del alumno");
        int edad = sn.nextInt();
-       Alumno alumno = new Alumno(nombre,sexo,edad);
+       alumno.setEdad(edad);
        System.out.print("ha ingresado ");
        System.out.print(alumno);
        return(alumno);
        }
     
     public static void ingreso_notas(Alumno alumno) {
+        ingreso_alumno(alumno);
+        System.out.print(alumno);
         Scanner sn = new Scanner(System.in);
         
         float i = 1;
@@ -81,7 +85,7 @@ public class Notas1 {
              System.out.println("ingrese nota del alumno");
               i = sn.nextFloat();
             }
-         
+         System.out.print(alumno);
     }
 }
 /*
